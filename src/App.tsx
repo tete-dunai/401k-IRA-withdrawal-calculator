@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { computeNri, computeRor } from "./lib/calc";
 import { FX } from "./lib/bracket";
