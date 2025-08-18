@@ -51,10 +51,10 @@ function App() {
     <div className="min-h-screen bg-white">
       <h1 className="text-4xl font-bold mt-4 text-center">401k / IRA Withdrawal Calculator</h1>
       <p className="text-center mt-8 text-xl">Are you withdrawing before 59½ age ?</p>
-      <div className="flex mt-6 gap-12">
+      <div className="flex justify-center mt-6 gap-12">
         <button
           onClick={() => setSelectedOption("yes")}
-          className={`rounded-[16px] px-7 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 ml-150 mr-4 ${
+          className={`rounded-[16px] px-7 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 ${
             selectedOption === "yes"
               ? "bg-[#e6ffed] shadow-[0_0_10px_2px_#9ae6b4] border border-transparent"
               : "bg-gray-50 border border-gray-100 shadow-sm hover:border-gray-200"
