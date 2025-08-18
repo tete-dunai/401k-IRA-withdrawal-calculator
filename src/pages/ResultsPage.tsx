@@ -26,7 +26,7 @@ export default function ResultsPage() {
   const hasAny = Boolean(nriResult || rnorResult || rorResult);
 
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#213547] px-4 py-10">
+    <div class="bg-white p-10 rounded-2xl shadow-lg max-w-2xl w-full">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-semibold">Results</h1>
