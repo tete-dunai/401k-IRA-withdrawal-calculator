@@ -49,7 +49,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <h1 className="text-4xl font-bold mt-4 text-center">401k / IRA Withdrawal Calculator</h1>
+      <div class="bg-white p-10 rounded-2xl shadow-lg">
+        <h1 className="text-4xl font-bold mt-4 text-center">401k / IRA Withdrawal Calculator</h1>
       <p className="text-center mt-8 text-xl">Are you withdrawing before 59½ age ?</p>
       <div className="flex justify-center mt-6 gap-12">
         <button
@@ -112,6 +113,7 @@ function App() {
         </button>
       </div>
       <div className="mb-10"></div>
+      </div>
     </div>
   );
 }
