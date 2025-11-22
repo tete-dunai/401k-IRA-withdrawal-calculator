@@ -17,18 +17,21 @@ const ResultsContainer: React.FC<ResultsContainerProps> = ({ title, data }) => {
   return (
     <div className="bg-green-50 rounded-[16px] p-4 pb-4 pt-3 mt-10 mx-auto max-w-3xl border border-green-200 shadow-[0_0_10px_2px_#9ae6b4]">
       <div className="text-lg font-medium text-gray-900 text-center mb-3">{title}</div>
+      <p className="text-sm text-[#213547] mb-4 text-center">
+        Disclaimer: These are estimated trial values. Please consult experts to derive accurate calculations.
+      </p>
       <div className="grid grid-cols-3 text-center gap-1">
         <div>
           <div className="text-sm font-medium">USA Tax</div>
-          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto">{data.usaTax}</div>
+          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto min-h-[32px]">{data.usaTax}</div>
         </div>
         <div>
           <div className="text-sm font-medium">India Tax (after adjusting for DTAA)</div>
-          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto">{data.indiaTax}</div>
+          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto min-h-[32px]">{data.indiaTax}</div>
         </div>
         <div>
           <div className="text-sm font-medium">Penalty</div>
-          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto">{data.penalty}</div>
+          <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto min-h-[32px]">{data.penalty}</div>
         </div>
       </div>
       <div className="flex justify-center gap-10 mt-3 text-center">
