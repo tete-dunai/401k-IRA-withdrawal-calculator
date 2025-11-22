@@ -27,6 +27,9 @@ export default function ResultsPage() {
 
   return (
     <div class="bg-white p-10 rounded-2xl shadow-lg max-w-2xl w-full">
+      <p className="text-sm text-[#213547] mb-6 text-center">
+        Disclaimer: These are estimated trial values. Please consult experts to derive accurate calculations.
+      </p>
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-semibold">Results</h1>
