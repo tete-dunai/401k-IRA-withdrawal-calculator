@@ -15,9 +15,9 @@ type ResultsContainerProps = {
 
 const ResultsContainer: React.FC<ResultsContainerProps> = ({ title, data }) => {
   return (
-    <div className="bg-green-50 rounded-[16px] p-4 pb-4 pt-3 mt-10 mx-auto max-w-3xl border border-green-200 shadow-[0_0_10px_2px_#9ae6b4]">
+    <div className="bg-green-50 rounded-[16px] p-6 pb-6 pt-5 mt-8 mx-auto max-w-3xl border border-green-200 shadow-[0_0_10px_2px_#9ae6b4]">
       <div className="text-lg font-medium text-gray-900 text-center mb-3">{title}</div>
-      <div className="grid grid-cols-3 text-center gap-1">
+      <div className="grid grid-cols-3 text-center gap-4">
         <div>
           <div className="text-sm font-medium">USA Tax</div>
           <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto min-h-[32px]">{data.usaTax}</div>
@@ -31,7 +31,7 @@ const ResultsContainer: React.FC<ResultsContainerProps> = ({ title, data }) => {
           <div className="bg-white rounded-[16px] py-1.5 shadow w-full max-w-[180px] mx-auto min-h-[32px]">{data.penalty}</div>
         </div>
       </div>
-      <div className="flex justify-center gap-10 mt-3 text-center">
+      <div className="flex justify-center gap-10 mt-6 text-center">
         <div>
           <div className="text-sm font-medium">Total Deducted</div>
           <div className="bg-white rounded-[16px] py-1.5 shadow mt-1.5 w-full max-w-[180px] mx-auto min-h-[32px]">{data.totalDeducted}</div>
