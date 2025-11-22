@@ -23,7 +23,7 @@ const ResultsContainer: React.FC<ResultsContainerProps> = ({ title, data }) => {
           <div className="bg-white rounded-[16px] py-1.5 shadow w-48 mx-auto">{data.usaTax}</div>
         </div>
         <div>
-          <div className="text-sm font-medium">India Tax</div>
+          <div className="text-sm font-medium">India Tax (after adjusting for DTAA)</div>
           <div className="bg-white rounded-[16px] py-1.5 shadow w-48 mx-auto">{data.indiaTax}</div>
         </div>
         <div>
@@ -41,6 +41,10 @@ const ResultsContainer: React.FC<ResultsContainerProps> = ({ title, data }) => {
           <div className="bg-white rounded-[16px] py-1.5 shadow mt-1.5 w-48 mx-auto min-h-[32px]">{data.totalReceivable}</div>
         </div>
       </div>
+
+      <p className="text-base text-[#213547] mt-4 text-center">
+        Disclaimer: These are estimated trial values. Please consult experts to derive accurate calculations.
+      </p>
     </div>
   );
 };
