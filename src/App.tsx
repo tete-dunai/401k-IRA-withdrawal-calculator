@@ -7,6 +7,7 @@ function App() {
   const [selectedOption, setSelectedOption] = useState<"yes" | "no" | null>(null);
   const [amount, setAmount] = useState("");
   const [selectedFund, setSelectedFund] = useState<"401k" | "Roth 401k" | "IRA" | "Roth IRA" | null>(null);
+  const [showError, setShowError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,6 +24,14 @@ function App() {
 
   const handleCalculate = () => {
     const A = parseAmountUSD(amount);
+    
+    // Validate all fields are filled
+    if (selectedOption === null || A === 0 || selectedFund === null) {
+      setShowError(true);
+      return;
+    }
+
+    setShowError(false);
     const early = selectedOption === "yes";
 
     const res = computeNri(A, early);
@@ -48,7 +57,7 @@ function App() {
   };
 
   return (
-      <div class="bg-white p-10 rounded-2xl shadow-lg">
+      <div className="bg-white p-10 rounded-2xl shadow-lg">
         <h1 className="text-4xl font-bold mt-4 text-center">
           401k / IRA Withdrawal Calculator
           <span className="text-base font-normal ml-2 text-[#1f2937] relative top-0.5">(Beta)</span>
@@ -56,7 +65,10 @@ function App() {
       <p className="text-center mt-8 text-xl">Are you withdrawing before 59½ age ?</p>
       <div className="flex justify-center mt-6 gap-12">
         <button
-          onClick={() => setSelectedOption("yes")}
+          onClick={() => {
+            setSelectedOption("yes");
+            setShowError(false);
+          }}
           className={`rounded-[16px] px-7 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 ${
             selectedOption === "yes"
               ? "bg-[#e6ffed] shadow-[0_0_10px_2px_#9ae6b4] border border-transparent"
@@ -66,7 +78,10 @@ function App() {
           Yes
         </button>
         <button
-          onClick={() => setSelectedOption("no")}
+          onClick={() => {
+            setSelectedOption("no");
+            setShowError(false);
+          }}
           className={`rounded-[16px] px-7 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 ${
             selectedOption === "no"
               ? "bg-[#ffecec] shadow-[0_0_10px_2px_#feb2b2] border border-transparent"
@@ -85,6 +100,7 @@ function App() {
             const raw = e.target.value.replace(/[^0-9]/g, "");
             const formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             setAmount(formatted);
+            setShowError(false);
           }}
           className="border-2 border-gray-100 focus:border-green-50 focus:shadow-[0_0_10px_2px_#9ae6b4] rounded-[16px] px-4 py-2 text-center text-lg focus:outline-none focus:bg-green-50"
           placeholder="Enter amount $ "
@@ -95,7 +111,10 @@ function App() {
         {["401k", "Roth 401k", "IRA", "Roth IRA"].map((fund) => (
           <button
             key={fund}
-            onClick={() => setSelectedFund(fund as "401k" | "Roth 401k" | "IRA" | "Roth IRA")}
+            onClick={() => {
+              setSelectedFund(fund as "401k" | "Roth 401k" | "IRA" | "Roth IRA");
+              setShowError(false);
+            }}
             className={`rounded-[16px] px-4 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 ${
               selectedFund === fund
                 ? "bg-[#e6ffed] shadow-[0_0_10px_2px_#9ae6b4] border border-transparent"
@@ -106,6 +125,15 @@ function App() {
           </button>
         ))}
       </div>
+      {showError && (
+        <div className="flex justify-center mt-4">
+          <button
+            className="rounded-[16px] px-4 py-2 text-base font-medium cursor-pointer transition-[border-color,box-shadow,background-color] duration-200 bg-gray-50 border border-gray-100 shadow-sm hover:border-gray-200"
+          >
+            Fill all details
+          </button>
+        </div>
+      )}
       <div className="flex justify-center mt-8">
         <button
           onClick={handleCalculate}
