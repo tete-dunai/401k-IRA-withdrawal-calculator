@@ -25,8 +25,7 @@ export default function ResultsPage() {
   const hasAny = Boolean(nriResult || rnorResult || rorResult);
 
   return (
-    <div className="bg-white p-10 rounded-2xl shadow-lg max-w-2xl w-full">
-      <div className="max-w-4xl mx-auto">
+    <div className="w-full px-6 sm:px-6 pt-6 pb-10 max-w-[600px] mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-semibold">Results</h1>
           <Link
@@ -44,15 +43,14 @@ export default function ResultsPage() {
         )}
 
         {nriResult && (
-          <ResultsContainer title="NRI" data={nriResult} />
+          <ResultsContainer title="NRI" data={nriResult} className="w-full max-w-[480px] sm:max-w-[900px] mx-auto my-10" />
         )}
         {rnorResult && (
-          <ResultsContainer title="RNOR" data={rnorResult} />
+          <ResultsContainer title="RNOR" data={rnorResult} className="w-full max-w-[480px] sm:max-w-[900px] mx-auto my-10" />
         )}
         {rorResult && (
-          <ResultsContainer title="ROR" data={rorResult} />
+          <ResultsContainer title="ROR" data={rorResult} className="w-full max-w-[480px] sm:max-w-[900px] mx-auto my-10" />
         )}
-      </div>
       <p className="text-sm text-[#213547] mt-8 text-center">
         Disclaimer: These are estimated trial values. Please consult experts to derive accurate calculations.
       </p>
