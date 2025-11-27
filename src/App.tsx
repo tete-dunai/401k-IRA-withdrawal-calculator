@@ -57,7 +57,7 @@ function App() {
   };
 
   return (
-      <div className="bg-white p-10 rounded-2xl shadow-lg">
+    <div>
         <h1 className="text-4xl font-bold mt-4 text-center">
           401k / IRA Withdrawal Calculator
           <span className="text-base font-normal ml-2 text-[#1f2937] relative top-0.5">(Beta)</span>
